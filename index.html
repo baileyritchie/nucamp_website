@@ -11,28 +11,79 @@
             <!-- Additional CSS must be placed after Bootstrap CSS -->
             <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" />
             <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css" />
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans" />
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Poppins&display=swap"/>
             <link rel="stylesheet" href="css/styles.css" />
             <title>NuCamp: A Better Way To Camp</title>
         </head>
 <body>
     <header class="jumbotron jumbotron-fluid">
-        
-            <div class="container">
-
-                <div class="row">
-                    <a href="index.html"><img src="img/logo.png" class="img-fluid" /></a>
-                    <div class="col">
-                        <h1>NuCamp</h1>
-                        <h2>a better way to camp</h2>
-                    <div class="col-md-4-xl-2 mt-4">
-                        <a href="#reserveForm" role="button" class="btn pull-right btn-lg btn-info" data-toggle="tooltip" 
-                        data-placement="bottom" data-html="true" title="Or call us at <br /><strong>1-206-555-1234</strong>">Reserve Campsite</a>
+        <button type="button" class="mt-4 btn pull-right bg-info text-white" data-toggle="modal" data-target="#reserveModal">
+            Reserve Campsite
+        </button>
+        <div class="container">
+            <div class="row">
+                <a href="index.html"><img src="img/logo.png" class="img-fluid" /></a>
+                <div class="col">
+                    <h1>NuCamp</h1>
+                    <h2>a better way to camp</h2>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="modal fade " id="reserveModal" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header bg-white text-info">
+                        <h5 class="modal-title" id="reserveModalTitle">Reserve a Campsite</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            &times;</button>
                     </div>
+                    <div class="modal-body">
+                        <form id="reserveForm">
+                            <div class="col">
+                                <div class="row form-group">
+                                    <label for="numCampers" class="col-sm-6 col-form-label"> Number of Campers</label>
+                                    <select id="numCampers" class="form-control">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                    </select>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="date" class="col-sm-6 col-form-label">Date</label>
+                                    <div class="col-form-label">
+                                        <input class="form-control" id="date" placeholder="MM/DD/YYYY" type="text">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label class="col-sm-6">Campsite Type</label>
+                                    <div class="btn-group btn-group-toggle"data-toggle="buttons">
+                                        <label class="btn btn-success active">
+                                            <input type="radio" name="siteType" id="siteTent"> Tents
+                                        </label>
+                                        <label class="btn btn-secondary ">
+                                            <input type="radio" name="siteType" id="siteRV" > RVs
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col">
+                                        <button class="btn btn-primary" type="submit">Search</button>
+                                        <button class="btn btn-secondary" type="cancel">Cancel</button>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        </header>
+        </div>
+    </div>
         <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
             <div class="container">
                 <a class="navbar-brand" href="index.html"><img src="img/logo.png" height="30" width="30" /></a>  
@@ -97,7 +148,7 @@
     <div class="container">
         <div class="row row-content">
             <div class="col-md-8 mx-auto">
-                <div id="homeCarousel" class="carousel slide" data-ride="carousel">
+                <div id="homeCarousel" class="carousel slide border-5" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#homeCarousel"data-slide-to="0" class="active"></li>
                         <li data-target="#homeCarousel"data-slide-to="1" ></li>
@@ -188,42 +239,6 @@
             </div>
         </div>
     <div>
-    <div class="container">
-        <div class="row row-content">
-            <div class= "col-sm-6 mx-auto">
-                <div class="card">
-                    <h3 class="card-header bg-info text-white">Reserve a Campsite</h3>
-                    <div class="card-body">
-                        <form id="reserveForm">
-                            <div class="row form-group">
-                                <label for="numCampers" class="col-form-label col-sm-6"> Number of Campers</label>
-                                <select id="numCampers" class="form-control">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                </select>
-                            </div>
-                            <div class="row form-group">
-                                <label for="date" class="col-sm-6 col-form-label">Date</label>
-                                <div class="col-form-label">
-                                    <input class="form-control" id="date" placeholder="MM/DD/YYYY" type="text">
-                                </div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col">
-                                    <button class="btn btn-primary" type="submit">Search</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <footer class="site-footer">
         <div class="container">
             <div class="row">
@@ -257,11 +272,7 @@
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <script> 
-        $(function (){
-                $('[data-toggle="tooltip"]').tooltip()
-        })
-    </script>
+    
 
 
 </body>
